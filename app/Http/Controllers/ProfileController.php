@@ -57,4 +57,10 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+
+     public function show(\App\Models\Product $product)
+    {
+    $product->load('mainImage'); // 画像も一緒に
+    return view('products.show', compact('product'));
+    }
 }
